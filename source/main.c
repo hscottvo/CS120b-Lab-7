@@ -12,7 +12,7 @@
 #include "simAVRHeader.h"
 #endif
 unsigned short MAX = 0x00FF;
-unsigned char thresh = 0x1F;
+unsigned char thresh = MAX / 8;
 void ADC_init() {
     ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE);
 }
