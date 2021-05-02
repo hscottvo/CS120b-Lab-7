@@ -28,7 +28,7 @@ int main(void) {
 
     while (1) {
         val = ADC; 
-        PORTB = 0x01 & (val >= MAX / 2);
+        PORTB = 0x01 & (val >= (MAX / 2));
     }
     return 1;
 }
