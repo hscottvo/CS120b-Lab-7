@@ -31,7 +31,7 @@ int main(void) {
     while (1) {
         val = ADC; 
         tmpB = 0xFF;
-        while (tmpB >= thresh){
+        while (tmpB >= (val / 8)){
             tmpB = tmpB >> 1;
         }
         PORTB = tmpB;
