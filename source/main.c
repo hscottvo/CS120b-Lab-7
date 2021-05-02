@@ -11,7 +11,7 @@
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
 #endif
-
+unsigned short MAX = 0x038F;
 void ADC_init() {
     ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE);
 }
@@ -28,8 +28,7 @@ int main(void) {
 
     while (1) {
         val = ADC; 
-        PORTB = (char)val;
-        PORTD = (char)((val >> 8) & 0x03);
+        PORTB = 0x01 & (val >= MAX / 2);
     }
     return 1;
 }
