@@ -29,11 +29,26 @@ int main(void) {
     ADC_init();
 
     while (1) {
-        val = ADC; 
-        tmpB = 0xFF;
-        while (tmpB >= (val / 8)){
-            tmpB = tmpB >> 1;
+        val = ADC;
+        if(val < thresh) {
+            PORTB = 0x01;
+        } else if (val < 2 * thresh) {
+            PORTB = 0x03;
+        } else if (val < 3 * thresh) {
+            PORTB = 0x07;
+        } else if (val < 4 * thresh) {
+            PORTB = 0x0F;
+        } else if (val < 5 * thresh) {
+            PORTB = 0x1F;
+        } else if (val < 6 * thresh) {
+            PORTB = 0x3F;
+        } else if (val < 7 * thresh) {
+            PORTB = 0x7F;
+        } else {
+            PORTB = 0xFF;
         }
+
+
         PORTB = tmpB;
     }
     return 1;
