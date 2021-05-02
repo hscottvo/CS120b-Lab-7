@@ -12,7 +12,6 @@
 #include "simAVRHeader.h"
 #endif
 unsigned short MAX = 0x00FF;
-unsigned char thresh = MAX / 8;
 void ADC_init() {
     ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE);
 }
@@ -24,7 +23,7 @@ int main(void) {
     // DDRD = 0xFF; PORTD = 0x00;
     /* Insert your solution below */
     unsigned short val = 0;
-    unsigned char tmpB = 0x00;
+    unsigned char thresh = MAX / 8;
 
     ADC_init();
 
