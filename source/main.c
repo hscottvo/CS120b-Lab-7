@@ -48,8 +48,6 @@ int main(void) {
             PORTB = 0xFF;
         }
 
-
-        PORTB = tmpB;
     }
     return 1;
 }
