@@ -20,7 +20,7 @@ int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF;
     DDRB = 0xFF; PORTB = 0x00;
-    DDRD = 0xFF; PORTD = 0x00;
+    // DDRD = 0xFF; PORTD = 0x00;
     /* Insert your solution below */
     unsigned short val = 0;
 
@@ -28,7 +28,10 @@ int main(void) {
 
     while (1) {
         val = ADC; 
-        PORTB = 0x01 & (val >= (MAX / 2));
+        if (val >= (MAX / 2)){
+            PORTB = 0x01;
+        }
+        else PORTB = 0x00;
     }
     return 1;
 }
